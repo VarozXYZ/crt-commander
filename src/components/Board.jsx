@@ -29,11 +29,3 @@ export default function Board({ robot, walls }) {
         </table>
     );
 }  
-
-
-// array.some(callback(element, index, array))
-
-const numbers = [1, 3, 5, 8, 9];
-
-const hasEven = numbers.some(n => n % 2 === 0);
-console.log(hasEven);
