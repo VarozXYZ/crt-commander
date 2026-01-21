@@ -24,8 +24,10 @@ export default function Board({ robot, walls }) {
     }
 
     return (
-        <table style={{ borderCollapse: "collapse", margin: "20px" }}>
-            <tbody>{rows}</tbody>
-        </table>
+        <div style={{ display: "flex", justifyContent: "center" }}>
+            <table style={{ borderCollapse: "collapse", margin: "20px" }}>
+                <tbody>{rows}</tbody>
+            </table> 
+        </div>
     );
 }  

@@ -37,7 +37,56 @@ export default function Game() {
                 let { row: mr, col: mc, facing: mf } = robot;
                 let newRow = mr;
                 let newCol = mc;
+
+                switch (mf) {
+                    case "NORTH":
+                        newRow = mr === 5 ? 1 : mr + 1;
+                        break;
+                    case "SOUTH":
+                        newRow = mr === 1 ? 5 : mr - 1;
+                        break;
+                    case "EAST":
+                        newCol = mc === 5 ? 1 : mc + 1;
+                        break;
+                    case "WEST":
+                        newCol = mc === 1 ? 5 : mc - 1;
+                        break;
+                }
+
+                if (!walls.some((w) => w.row === newRow && w.col === newCol)) {
+                    setRobot({ row: newRow, col: newCol, facing: mf });
+                }
+                break;
+
+                case "LEFT":
+                    if (!robot) return;
+                    setRobot({...robot, facing: DIRECTIONS[(DIRECTIONS.indexOf(robot.facing) + 3) % 4],
+                    });
+                    break;
+
+                case "RIGHT":
+                    if (!robot) return;
+                    setRobot({...robot, facing: DIRECTIONS[(DIRECTIONS.indexOf(robot.facing) + 1) % 4],
+                    });
+                    break;
+                
+                case "REPORT":
+                    if (robot) {
+                        setReport(`${robot.row},${robot.col},${robot.facing}`);
+                    }
+                    break;
         }
-    }
+    };
+
+    return (
+        <div style={{ textAlign: "center", padding: "20px" }}>
+            <h1>Juego del robot</h1>
+            <p>Usa los comandos: PLACE_ROBOT, PLACE_WALL, MOVE, LEFT, RIGHT, REPORT</p>
+
+            <Board robot={robot} walls={walls} />
+            <CommandInput onCommand={handleCommand} />
+            <RobotReport report={report} />
+        </div>
+    );
 }
 
