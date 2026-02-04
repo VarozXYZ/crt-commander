@@ -1,16 +1,28 @@
-# React + Vite
+# CRT Commander
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A Toy Robot-style grid game with a retro CRT terminal UI, built with React + Vite.
 
-Currently, two official plugins are available:
+## Gameplay
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Grid: 5×5 (wrap-around edges)
+- Robot: place, rotate, move
+- Walls: place walls to block movement
 
-## React Compiler
+## Commands
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+- `PLACE_ROBOT row,col,facing` (facing: `NORTH|EAST|SOUTH|WEST`)
+- `PLACE_WALL row,col`
+- `MOVE`
+- `LEFT`
+- `RIGHT`
+- `REPORT`
 
-## Expanding the ESLint configuration
+Rows/cols are `1..5`.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Dev
+
+```bash
+npm install
+npm run dev
+npm run lint
+```
