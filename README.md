@@ -2,9 +2,13 @@
 
 A Toy Robot-style grid game with a retro CRT terminal UI, built with React + Vite.
 
+## Screenshot
+
+![CRT Commander screenshot](assets/screenshot.png)
+
 ## Gameplay
 
-- Grid: 5×5 (wrap-around edges)
+- Grid: 5x5 (wrap-around edges)
 - Robot: place, rotate, move
 - Walls: place walls to block movement
 
